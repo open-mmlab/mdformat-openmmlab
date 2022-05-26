@@ -1,23 +1,31 @@
-# mdformat-plugin
+# mdformat-openmmlab
 
 [![Build Status][ci-badge]][ci-link]
 [![codecov.io][cov-badge]][cov-link]
 [![PyPI version][pypi-badge]][pypi-link]
 
-An [mdformat](https://github.com/executablebooks/mdformat) plugin for...
+An [mdformat](https://github.com/executablebooks/mdformat) plugin for OpenMMLab standard.
 
-## Required changes for a new plugin
+## How to use it
 
-This demonstration is setup with a plugin named `plugin`.
-There are a number of locations to change.
-At a top level for a plugin `foo` at least the following changes are required
+Add the follow section to `.pre-commit-config.yaml`:
 
-- Global find and replace `mdformat_plugin` to `mdformat_foo` including folder names.
-- Global find and replace `mdformat-plugin` to `mdformat-foo` including folder names.
-- `tests/test_fixtures.py`: `output = mdformat.text(text, extensions={"plugin"})` becomes `output = mdformat.text(text, extensions={"foo"})`
-- `pyproject.toml` in addition to the global find and replace: `plugin = "mdformat_plugin"` becomes `foo = "mdformat_foo"`
+```yaml
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.14
+    hooks:
+      - id: mdformat
+        args: ["--number", "--table-width", "200"]
+        additional_dependencies:
+          - git+https://github.com/mzr1996/mdformat-openmmlab.git#egg=mdformat-openmmlab
+          - mdformat_frontmatter
+          - linkify-it-py
+```
 
-Do not forget to update authorship / maintainers in `pyproject.toml` as well.
+The argument `--table-width` is used to limit the max width of tables.
+
+ATTENTION: This plugin already include all functionalities of `mdformat-gfm` and `mdformat-tables`, and is
+not compatible with them, please don't install them again.
 
 ## Development
 
