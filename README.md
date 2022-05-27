@@ -16,7 +16,7 @@ Add the follow section to `.pre-commit-config.yaml`:
       - id: mdformat
         args: ["--number", "--table-width", "200"]
         additional_dependencies:
-          - git+https://github.com/mzr1996/mdformat-openmmlab.git#egg=mdformat-openmmlab
+          - mdformat-openmmlab
           - mdformat_frontmatter
           - linkify-it-py
 ```
@@ -82,7 +82,7 @@ or trigger the GitHub Action job, by creating a release with a tag equal to the 
 
 Note, this requires generating an API key on PyPi and adding it to the repository `Settings/Secrets`, under the name `PYPI_KEY`.
 
-[ci-badge]: https://github.com/mzr1996/mdformat-openmmlab/workflows/CI/badge.svg?branch=master
-[ci-link]: https://github.com/mzr1996/mdformat-openmmlab/actions?query=workflow%3ACI+branch%3Amaster+event%3Apush
+[ci-badge]: https://github.com/open-mmlab/mdformat-openmmlab/workflows/CI/badge.svg?branch=master
+[ci-link]: https://github.com/open-mmlab/mdformat-openmmlab/actions?query=workflow%3ACI+branch%3Amaster+event%3Apush
 [pypi-badge]: https://img.shields.io/pypi/v/mdformat-openmmlab.svg
 [pypi-link]: https://pypi.org/project/mdformat-openmmlab

@@ -32,7 +32,7 @@ test = [
 dev = ["pre-commit"]
 
 [project.urls]
-Homepage = "https://github.com/mzr1996/mdformat-openmmlab"
+Homepage = "https://github.com/open-mmlab/mdformat-openmmlab"
 
 [project.entry-points."mdformat.parser_extension"]
 openmmlab = "mdformat_openmmlab"
