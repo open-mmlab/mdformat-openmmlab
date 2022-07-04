@@ -11,7 +11,8 @@ Add the follow section to `.pre-commit-config.yaml`:
 
 ```yaml
   - repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.14
+    # To be compatible with Python 3.6, specify the version here.
+    rev: 0.7.9
     hooks:
       - id: mdformat
         args: ["--number", "--table-width", "200"]
