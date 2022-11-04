@@ -46,7 +46,7 @@ def add_cli_options(parser):
     )
     parser.add_argument(
         "--disable-escape",
-        nargs='+',
+        action='append',
         choices=[
             'backslash', 'asterisk', 'underscore', 'link-enclosure',
             'uri-enclosure', 'code-span'
