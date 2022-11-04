@@ -13,6 +13,7 @@ from .gfm import (
     _strikethrough_renderer,
 )
 from .table import _escape_tables, _render_cell, _render_table
+from .text import text
 
 
 def update_mdit(mdit: MarkdownIt) -> None:
@@ -43,6 +44,15 @@ def add_cli_options(parser):
         type=int,
         help="The maximum width to pad in tables.",
     )
+    parser.add_argument(
+        "--disable-escape",
+        nargs='+',
+        choices=[
+            'backslash', 'asterisk', 'underscore', 'link-enclosure',
+            'uri-enclosure', 'code-span'
+        ],
+        help="To disable the speicifed escape.",
+    )
 
 
 RENDERERS: Mapping[str, Render] = {
@@ -52,6 +62,7 @@ RENDERERS: Mapping[str, Render] = {
     "s": _strikethrough_renderer,
     "list_item": _list_item_renderer,
     "link": _link_renderer,
+    "text": text,
 }
 POSTPROCESSORS: Mapping[str, Postprocess] = {
     "paragraph": _escape_tables,

@@ -24,6 +24,31 @@ Add the follow section to `.pre-commit-config.yaml`:
 
 The argument `--table-width` is used to limit the max width of tables.
 
+If you want to avoid escaping some symbols, you can use `--disable-escape` and specify the symbols to skip.
+
+For example, to avoid escaping backslash (`\`) and uri-enclosure (`<`).
+
+```yaml
+  - repo: https://github.com/executablebooks/mdformat
+    # To be compatible with Python 3.6, specify the version here.
+    rev: 0.7.9
+    hooks:
+      - id: mdformat
+        args: ["--number", "--table-width", "200", "--disable-escape", "backslash", "uri-enclosure"]
+        additional_dependencies:
+          - mdformat-openmmlab
+          - mdformat_frontmatter
+          - linkify-it-py
+```
+
+Here are available options:
+
+- `backslash` (`\`)
+- `asterisk` (`*`)
+- `underscore` (`_`)
+- `link-enclosure` (`[` and `]`)
+- `uri-enclosure` (`<`)
+
 ATTENTION: This plugin already include all functionalities of `mdformat-gfm` and `mdformat-tables`, and is
 not compatible with them, please don't install them again.
 
