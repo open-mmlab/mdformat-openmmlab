@@ -20,7 +20,7 @@ def text(node: RenderTreeNode, context: RenderContext) -> str:
     """
     text = node.content
 
-    disable_escape = context.options["mdformat"].get("disable_escape", [])
+    disable_escape = context.options["mdformat"].get("disable_escape") or []
 
     if 'backslash' not in disable_escape:
         # Escape backslash to prevent it from making unintended escapes.
