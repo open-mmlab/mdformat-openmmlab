@@ -36,7 +36,7 @@ For example, to avoid escaping backslash (`\`) and uri-enclosure (`<`).
       - id: mdformat
         args: ["--number", "--table-width", "200", "--disable-escape", "backslash", "uri-enclosure"]
         additional_dependencies:
-          - mdformat-openmmlab
+          - "mdformat-openmmlab>=0.0.2"
           - mdformat_frontmatter
           - linkify-it-py
 ```
